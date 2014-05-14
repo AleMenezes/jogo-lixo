@@ -1,0 +1,501 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F6146090192404D300174079 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F614608F192404D300174079 /* Foundation.framework */; };
+		F6146092192404D300174079 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6146091192404D300174079 /* CoreGraphics.framework */; };
+		F6146094192404D300174079 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6146093192404D300174079 /* UIKit.framework */; };
+		F6146096192404D300174079 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6146095192404D300174079 /* SpriteKit.framework */; };
+		F614609C192404D300174079 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F614609A192404D300174079 /* InfoPlist.strings */; };
+		F614609E192404D300174079 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F614609D192404D300174079 /* main.m */; };
+		F61460A2192404D300174079 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F61460A1192404D300174079 /* AppDelegate.m */; };
+		F61460A5192404D300174079 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61460A3192404D300174079 /* Main_iPhone.storyboard */; };
+		F61460A8192404D300174079 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61460A6192404D300174079 /* Main_iPad.storyboard */; };
+		F61460AB192404D300174079 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F61460AA192404D300174079 /* ViewController.m */; };
+		F61460AE192404D300174079 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F61460AD192404D300174079 /* MyScene.m */; };
+		F61460B0192404D300174079 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = F61460AF192404D300174079 /* Spaceship.png */; };
+		F61460B2192404D300174079 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61460B1192404D300174079 /* Images.xcassets */; };
+		F61460B9192404D300174079 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61460B8192404D300174079 /* XCTest.framework */; };
+		F61460BA192404D300174079 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F614608F192404D300174079 /* Foundation.framework */; };
+		F61460BB192404D300174079 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6146093192404D300174079 /* UIKit.framework */; };
+		F61460C3192404D300174079 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F61460C1192404D300174079 /* InfoPlist.strings */; };
+		F61460C5192404D300174079 /* jogo_lixoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F61460C4192404D300174079 /* jogo_lixoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F61460BC192404D300174079 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6146084192404D300174079 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F614608B192404D300174079;
+			remoteInfo = "jogo-lixo";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F614608C192404D300174079 /* jogo-lixo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "jogo-lixo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F614608F192404D300174079 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F6146091192404D300174079 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F6146093192404D300174079 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F6146095192404D300174079 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		F6146099192404D300174079 /* jogo-lixo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jogo-lixo-Info.plist"; sourceTree = "<group>"; };
+		F614609B192404D300174079 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F614609D192404D300174079 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F614609F192404D300174079 /* jogo-lixo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jogo-lixo-Prefix.pch"; sourceTree = "<group>"; };
+		F61460A0192404D300174079 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F61460A1192404D300174079 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F61460A4192404D300174079 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		F61460A7192404D300174079 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		F61460A9192404D300174079 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F61460AA192404D300174079 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F61460AC192404D300174079 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
+		F61460AD192404D300174079 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
+		F61460AF192404D300174079 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		F61460B1192404D300174079 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F61460B7192404D300174079 /* jogo-lixoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "jogo-lixoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F61460B8192404D300174079 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F61460C0192404D300174079 /* jogo-lixoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jogo-lixoTests-Info.plist"; sourceTree = "<group>"; };
+		F61460C2192404D300174079 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F61460C4192404D300174079 /* jogo_lixoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jogo_lixoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F6146089192404D300174079 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6146092192404D300174079 /* CoreGraphics.framework in Frameworks */,
+				F6146094192404D300174079 /* UIKit.framework in Frameworks */,
+				F6146096192404D300174079 /* SpriteKit.framework in Frameworks */,
+				F6146090192404D300174079 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F61460B4192404D300174079 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F61460B9192404D300174079 /* XCTest.framework in Frameworks */,
+				F61460BB192404D300174079 /* UIKit.framework in Frameworks */,
+				F61460BA192404D300174079 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F6146083192404D300174079 = {
+			isa = PBXGroup;
+			children = (
+				F6146097192404D300174079 /* jogo-lixo */,
+				F61460BE192404D300174079 /* jogo-lixoTests */,
+				F614608E192404D300174079 /* Frameworks */,
+				F614608D192404D300174079 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F614608D192404D300174079 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F614608C192404D300174079 /* jogo-lixo.app */,
+				F61460B7192404D300174079 /* jogo-lixoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F614608E192404D300174079 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F614608F192404D300174079 /* Foundation.framework */,
+				F6146091192404D300174079 /* CoreGraphics.framework */,
+				F6146093192404D300174079 /* UIKit.framework */,
+				F6146095192404D300174079 /* SpriteKit.framework */,
+				F61460B8192404D300174079 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6146097192404D300174079 /* jogo-lixo */ = {
+			isa = PBXGroup;
+			children = (
+				F61460A0192404D300174079 /* AppDelegate.h */,
+				F61460A1192404D300174079 /* AppDelegate.m */,
+				F61460A3192404D300174079 /* Main_iPhone.storyboard */,
+				F61460A6192404D300174079 /* Main_iPad.storyboard */,
+				F61460A9192404D300174079 /* ViewController.h */,
+				F61460AA192404D300174079 /* ViewController.m */,
+				F61460AC192404D300174079 /* MyScene.h */,
+				F61460AD192404D300174079 /* MyScene.m */,
+				F61460AF192404D300174079 /* Spaceship.png */,
+				F61460B1192404D300174079 /* Images.xcassets */,
+				F6146098192404D300174079 /* Supporting Files */,
+			);
+			path = "jogo-lixo";
+			sourceTree = "<group>";
+		};
+		F6146098192404D300174079 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F6146099192404D300174079 /* jogo-lixo-Info.plist */,
+				F614609A192404D300174079 /* InfoPlist.strings */,
+				F614609D192404D300174079 /* main.m */,
+				F614609F192404D300174079 /* jogo-lixo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F61460BE192404D300174079 /* jogo-lixoTests */ = {
+			isa = PBXGroup;
+			children = (
+				F61460C4192404D300174079 /* jogo_lixoTests.m */,
+				F61460BF192404D300174079 /* Supporting Files */,
+			);
+			path = "jogo-lixoTests";
+			sourceTree = "<group>";
+		};
+		F61460BF192404D300174079 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F61460C0192404D300174079 /* jogo-lixoTests-Info.plist */,
+				F61460C1192404D300174079 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F614608B192404D300174079 /* jogo-lixo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F61460C8192404D300174079 /* Build configuration list for PBXNativeTarget "jogo-lixo" */;
+			buildPhases = (
+				F6146088192404D300174079 /* Sources */,
+				F6146089192404D300174079 /* Frameworks */,
+				F614608A192404D300174079 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "jogo-lixo";
+			productName = "jogo-lixo";
+			productReference = F614608C192404D300174079 /* jogo-lixo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F61460B6192404D300174079 /* jogo-lixoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F61460CB192404D300174079 /* Build configuration list for PBXNativeTarget "jogo-lixoTests" */;
+			buildPhases = (
+				F61460B3192404D300174079 /* Sources */,
+				F61460B4192404D300174079 /* Frameworks */,
+				F61460B5192404D300174079 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F61460BD192404D300174079 /* PBXTargetDependency */,
+			);
+			name = "jogo-lixoTests";
+			productName = "jogo-lixoTests";
+			productReference = F61460B7192404D300174079 /* jogo-lixoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F6146084192404D300174079 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Alessandro Camillo Gimenez de Menezes";
+				TargetAttributes = {
+					F61460B6192404D300174079 = {
+						TestTargetID = F614608B192404D300174079;
+					};
+				};
+			};
+			buildConfigurationList = F6146087192404D300174079 /* Build configuration list for PBXProject "jogo-lixo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F6146083192404D300174079;
+			productRefGroup = F614608D192404D300174079 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F614608B192404D300174079 /* jogo-lixo */,
+				F61460B6192404D300174079 /* jogo-lixoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F614608A192404D300174079 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F61460B0192404D300174079 /* Spaceship.png in Resources */,
+				F61460B2192404D300174079 /* Images.xcassets in Resources */,
+				F61460A8192404D300174079 /* Main_iPad.storyboard in Resources */,
+				F61460A5192404D300174079 /* Main_iPhone.storyboard in Resources */,
+				F614609C192404D300174079 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F61460B5192404D300174079 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F61460C3192404D300174079 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F6146088192404D300174079 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F61460AE192404D300174079 /* MyScene.m in Sources */,
+				F61460AB192404D300174079 /* ViewController.m in Sources */,
+				F61460A2192404D300174079 /* AppDelegate.m in Sources */,
+				F614609E192404D300174079 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F61460B3192404D300174079 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F61460C5192404D300174079 /* jogo_lixoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F61460BD192404D300174079 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F614608B192404D300174079 /* jogo-lixo */;
+			targetProxy = F61460BC192404D300174079 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F614609A192404D300174079 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F614609B192404D300174079 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F61460A3192404D300174079 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F61460A4192404D300174079 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		F61460A6192404D300174079 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F61460A7192404D300174079 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		F61460C1192404D300174079 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F61460C2192404D300174079 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F61460C6192404D300174079 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F61460C7192404D300174079 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F61460C9192404D300174079 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "jogo-lixo/jogo-lixo-Prefix.pch";
+				INFOPLIST_FILE = "jogo-lixo/jogo-lixo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F61460CA192404D300174079 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "jogo-lixo/jogo-lixo-Prefix.pch";
+				INFOPLIST_FILE = "jogo-lixo/jogo-lixo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F61460CC192404D300174079 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/jogo-lixo.app/jogo-lixo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "jogo-lixo/jogo-lixo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "jogo-lixoTests/jogo-lixoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F61460CD192404D300174079 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/jogo-lixo.app/jogo-lixo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "jogo-lixo/jogo-lixo-Prefix.pch";
+				INFOPLIST_FILE = "jogo-lixoTests/jogo-lixoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F6146087192404D300174079 /* Build configuration list for PBXProject "jogo-lixo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F61460C6192404D300174079 /* Debug */,
+				F61460C7192404D300174079 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F61460C8192404D300174079 /* Build configuration list for PBXNativeTarget "jogo-lixo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F61460C9192404D300174079 /* Debug */,
+				F61460CA192404D300174079 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F61460CB192404D300174079 /* Build configuration list for PBXNativeTarget "jogo-lixoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F61460CC192404D300174079 /* Debug */,
+				F61460CD192404D300174079 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F6146084192404D300174079 /* Project object */;
+}
