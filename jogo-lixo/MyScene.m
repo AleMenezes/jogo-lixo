@@ -52,25 +52,35 @@
         [[self lixos] addChild: [self lixo3]];
         [[self lixos] addChild: [self lixo4]];
         [[self lixos] addChild: [self lixo5]];
-        [[self lixos] addChild: [self lixo6]];
+        //[[self lixos] addChild: [self lixo6]];
         
         [self addChild: [self lixos]];
         
-        [self animaLixosTeste: [NSNumber numberWithInt:1]];
+        //[self animaLixosTeste: [NSNumber numberWithInt:2]];
+        [self animaLixos];
         
     }
     return self;
 }
 
 -(void)animaLixos{
-    [[self lixos] runAction: [SKAction moveBy:CGVectorMake(0, -150) duration:2]];
-
+    //[[self lixos] runAction: [SKAction moveBy:CGVectorMake(0, -150) duration:2]];
+    //Produzir Lixos!
+    
+    for (SKSpriteNode *node in [[self lixos] children] ){
+        if (node.position.y + node.size.height/2  < 0) {
+            node.position = CGPointMake(self.frame.size.width/2 + 75, self.size.height + node.size.height/2);
+        }
+        [node runAction: [SKAction moveBy:CGVectorMake(0, -150) duration:2]];
+        
+    }
+    [self performSelector:@selector(animaLixos) withObject:nil afterDelay:2];
 }
 
 
 
+
 -(void)animaLixosTeste: (NSNumber* )animacao{
-    
     switch ([animacao intValue]) {
         case 1:
             [[self lixos] runAction: [SKAction moveBy:CGVectorMake(0, -100) duration:2]];
@@ -85,13 +95,10 @@
             [[self lixos] runAction: [SKAction moveBy:CGVectorMake(100, 0) duration:2]];
             break;
     }
-    [[self lixo1] runAction: [SKAction rotateByAngle:-(M_PI/2) duration:0.3]];
-    [[self lixo2] runAction: [SKAction rotateByAngle:-(M_PI/2) duration:0.3]];
-    [[self lixo3] runAction: [SKAction rotateByAngle:-(M_PI/2) duration:0.3]];
-    [[self lixo4] runAction: [SKAction rotateByAngle:-(M_PI/2) duration:0.3]];
-    [[self lixo5] runAction: [SKAction rotateByAngle:-(M_PI/2) duration:0.3]];
-    [[self lixo6] runAction: [SKAction rotateByAngle:-(M_PI/2) duration:0.3]];
-    
+    for (SKSpriteNode *node in [[self lixos] children] ){
+        [node runAction: [SKAction rotateByAngle:-(M_PI/2) duration:0.3]];
+    }
+
     animacao = [NSNumber numberWithInt:[animacao intValue] + 1];
     if ([animacao intValue] > 4) {
         animacao = [NSNumber numberWithInt:1];
@@ -102,16 +109,27 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     
-//    for (UITouch *touch in touches) {
-//        CGPoint location = [touch locationInNode:self];
-//        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-//        sprite.position = location;
-//        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-//        [sprite runAction:[SKAction repeatActionForever:action]];
-//        [self addChild:sprite];
-//    }
-
-    
+    for (UITouch *touch in touches) {
+        CGPoint location = [touch locationInNode:self];
+        for (SKSpriteNode *node in [[self lixos] children] ){
+            if (CGRectContainsPoint([node frame], location)) {
+                [node removeAllActions];
+                node.position = location;
+                break;
+            }
+        }
+    }
+}
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    for (UITouch *touch in touches) {
+        CGPoint location = [touch locationInNode:self];
+        for (SKSpriteNode *node in [[self lixos] children] ){
+            if (CGRectContainsPoint([node frame], location)) {
+                node.position = location;
+                break;
+            }
+        }
+    }
 }
 
 -(void)update:(CFTimeInterval)currentTime {
