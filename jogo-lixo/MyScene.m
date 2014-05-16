@@ -31,32 +31,9 @@
         [self addChild: [self lixeiraPlastico]];
         
         
-        [self setLixo1: [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(30, 50)]];
-        [self lixo1].position = CGPointMake(self.frame.size.width/2 + 75, self.frame.size.height/2 +300);
-        [self setLixo2: [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(30, 50)]];
-        [self lixo2].position = CGPointMake(self.frame.size.width/2 + 75, self.frame.size.height/2 +180);
-        [self setLixo3: [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(30, 50)]];
-        [self lixo3].position = CGPointMake(self.frame.size.width/2 + 75, self.frame.size.height/2 +60);
-        [self setLixo4: [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(30, 50)]];
-        [self lixo4].position = CGPointMake(self.frame.size.width/2 + 75, self.frame.size.height/2 -60);
-        [self setLixo5: [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(30, 50)]];
-        [self lixo5].position = CGPointMake(self.frame.size.width/2 + 75, self.frame.size.height/2 -180);
-        [self setLixo6: [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(30, 50)]];
-        [self lixo6].position = CGPointMake(self.frame.size.width/2 + 75, self.frame.size.height/2 -300);
-        
-        
         [self setLixos: [[SKNode alloc] init]];
-        
-        [[self lixos] addChild: [self lixo1]];
-        [[self lixos] addChild: [self lixo2]];
-        [[self lixos] addChild: [self lixo3]];
-        [[self lixos] addChild: [self lixo4]];
-        [[self lixos] addChild: [self lixo5]];
-        //[[self lixos] addChild: [self lixo6]];
-        
         [self addChild: [self lixos]];
-        
-        //[self animaLixosTeste: [NSNumber numberWithInt:2]];
+
         [self animaLixos];
         
     }
@@ -66,10 +43,18 @@
 -(void)animaLixos{
     //[[self lixos] runAction: [SKAction moveBy:CGVectorMake(0, -150) duration:2]];
     //Produzir Lixos!
+    SKSpriteNode *lixo = [SKSpriteNode spriteNodeWithColor: [UIColor colorWithRed:(arc4random()%255)/255.0
+                                                                            green:(arc4random()%255)/255.0
+                                                                             blue:(arc4random()%255)/255.0
+                                                                            alpha:1.0]
+                                                      size: CGSizeMake(30, 50)];
+    lixo.position = CGPointMake( (self.frame.size.width/2 + 75), (self.frame.size.height + lixo.frame.size.height/2));
+    [[self lixos] addChild: lixo];
+
     
     for (SKSpriteNode *node in [[self lixos] children] ){
         if (node.position.y + node.size.height/2  < 0) {
-            node.position = CGPointMake(self.frame.size.width/2 + 75, self.size.height + node.size.height/2);
+            [node removeFromParent];
         }
         [node runAction: [SKAction moveBy:CGVectorMake(0, -150) duration:2]];
         
@@ -114,7 +99,10 @@
         for (SKSpriteNode *node in [[self lixos] children] ){
             if (CGRectContainsPoint([node frame], location)) {
                 [node removeAllActions];
+                [node removeFromParent];
+                [self addChild:node];
                 node.position = location;
+                [self setLixoSelecionado: node];
                 break;
             }
         }
@@ -123,13 +111,12 @@
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
-        for (SKSpriteNode *node in [[self lixos] children] ){
-            if (CGRectContainsPoint([node frame], location)) {
-                node.position = location;
-                break;
-            }
-        }
+        [self lixoSelecionado].position = location;
     }
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    
 }
 
 -(void)update:(CFTimeInterval)currentTime {
