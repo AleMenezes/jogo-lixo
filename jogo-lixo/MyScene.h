@@ -18,7 +18,7 @@
 
 @property SKSpriteNode *lixoSelecionado;
 
-@property SKNode *lixos;
+@property NSMutableArray *lixos;
 
 
 @end
