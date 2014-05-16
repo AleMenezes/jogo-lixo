@@ -25,6 +25,7 @@
 		F61460BB192404D300174079 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6146093192404D300174079 /* UIKit.framework */; };
 		F61460C3192404D300174079 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F61460C1192404D300174079 /* InfoPlist.strings */; };
 		F61460C5192404D300174079 /* jogo_lixoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F61460C4192404D300174079 /* jogo_lixoTests.m */; };
+		F67CD036192691B4006D729C /* CriaNodes.m in Sources */ = {isa = PBXBuildFile; fileRef = F67CD035192691B4006D729C /* CriaNodes.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,9 @@
 		F61460C0192404D300174079 /* jogo-lixoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jogo-lixoTests-Info.plist"; sourceTree = "<group>"; };
 		F61460C2192404D300174079 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F61460C4192404D300174079 /* jogo_lixoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jogo_lixoTests.m; sourceTree = "<group>"; };
+		F67CD034192691B4006D729C /* CriaNodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CriaNodes.h; sourceTree = "<group>"; };
+		F67CD035192691B4006D729C /* CriaNodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CriaNodes.m; sourceTree = "<group>"; };
+		F67CD03C19269436006D729C /* MascarasColisao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MascarasColisao.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +133,11 @@
 				F61460A6192404D300174079 /* Main_iPad.storyboard */,
 				F61460A9192404D300174079 /* ViewController.h */,
 				F61460AA192404D300174079 /* ViewController.m */,
+				F67CD03C19269436006D729C /* MascarasColisao.h */,
 				F61460AC192404D300174079 /* MyScene.h */,
 				F61460AD192404D300174079 /* MyScene.m */,
+				F67CD034192691B4006D729C /* CriaNodes.h */,
+				F67CD035192691B4006D729C /* CriaNodes.m */,
 				F61460AF192404D300174079 /* Spaceship.png */,
 				F61460B1192404D300174079 /* Images.xcassets */,
 				F6146098192404D300174079 /* Supporting Files */,
@@ -268,6 +275,7 @@
 			files = (
 				F61460AE192404D300174079 /* MyScene.m in Sources */,
 				F61460AB192404D300174079 /* ViewController.m in Sources */,
+				F67CD036192691B4006D729C /* CriaNodes.m in Sources */,
 				F61460A2192404D300174079 /* AppDelegate.m in Sources */,
 				F614609E192404D300174079 /* main.m in Sources */,
 			);
@@ -486,6 +494,7 @@
 				F61460CA192404D300174079 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F61460CB192404D300174079 /* Build configuration list for PBXNativeTarget "jogo-lixoTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +503,7 @@
 				F61460CD192404D300174079 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 #import "MyScene.h"
+#import "CriaNodes.h"
 
 @implementation MyScene
 
@@ -16,14 +17,11 @@
         
         self.backgroundColor = [SKColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
         
-        [self setLixeiraMetal: [SKSpriteNode spriteNodeWithColor: [UIColor yellowColor] size:CGSizeMake(30, 50)]];
-        [self lixeiraMetal].position = CGPointMake(75, self.frame.size.height/2 +180);
-        [self setLixeiraPapel: [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(30, 50)]];
-        [self lixeiraPapel].position = CGPointMake(75, self.frame.size.height/2 +60);
-        [self setLixeiraVidro: [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(30, 50)]];
-        [self lixeiraVidro].position = CGPointMake(75, self.frame.size.height/2 -60);
-        [self setLixeiraPlastico: [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(30, 50)] ];
-        [self lixeiraPlastico].position = CGPointMake(75, self.frame.size.height/2 -180);
+        [self setLixeiraMetal: [CriaNodes lixeiraTipo:@"Metal" forFrame: self.frame]];
+        [self setLixeiraPapel: [CriaNodes lixeiraTipo:@"Papel" forFrame: self.frame]];
+        [self setLixeiraVidro: [CriaNodes lixeiraTipo:@"Vidro" forFrame: self.frame]];
+        [self setLixeiraPlastico: [CriaNodes lixeiraTipo:@"Plastico" forFrame: self.frame] ];
+
         
         [self addChild: [self lixeiraMetal]];
         [self addChild: [self lixeiraPapel]];
@@ -41,23 +39,19 @@
 }
 
 -(void)animaLixos{
-    //[[self lixos] runAction: [SKAction moveBy:CGVectorMake(0, -150) duration:2]];
-    //Produzir Lixos!
-    SKSpriteNode *lixo = [SKSpriteNode spriteNodeWithColor: [UIColor colorWithRed:(arc4random()%255)/255.0
-                                                                            green:(arc4random()%255)/255.0
-                                                                             blue:(arc4random()%255)/255.0
-                                                                            alpha:1.0]
-                                                      size: CGSizeMake(30, 50)];
-    lixo.position = CGPointMake( (self.frame.size.width/2 + 75), (self.frame.size.height + lixo.frame.size.height/2));
+    //Produzir Lixos com animacao de movimento!
+    //e verifica se ele ja andou pra fora da tela para remove-lo
+    
+    SKSpriteNode *lixo = [CriaNodes lixoAleatorioNoFrame: self.frame];
     [[self lixos] addChild: lixo];
 
-    
     for (SKSpriteNode *node in [[self lixos] children] ){
         if (node.position.y + node.size.height/2  < 0) {
             [node removeFromParent];
         }
-        [node runAction: [SKAction moveBy:CGVectorMake(0, -150) duration:2]];
-        
+        else{
+            [node runAction: [SKAction moveBy:CGVectorMake(0, -150) duration:2]];
+        }
     }
     [self performSelector:@selector(animaLixos) withObject:nil afterDelay:2];
 }
@@ -116,7 +110,7 @@
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    
+    [[self lixoSelecionado] removeFromParent];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
