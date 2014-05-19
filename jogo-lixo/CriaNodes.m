@@ -16,34 +16,32 @@
     if ([material isEqualToString:@"Metal"]) {
         nodeLixeira = [SKSpriteNode spriteNodeWithColor: [UIColor yellowColor] size:CGSizeMake(30, 50)];
         [nodeLixeira setPhysicsBody: [SKPhysicsBody bodyWithRectangleOfSize: nodeLixeira.size ]];
-        nodeLixeira.physicsBody.categoryBitMask = lixoMetal;
-        nodeLixeira.physicsBody.contactTestBitMask = lixoMetal;
+        nodeLixeira.physicsBody.categoryBitMask = lixeiraMetal;
         nodeLixeira.position = CGPointMake(75, frame.size.height/2 +180);
     }
     if ([material isEqualToString:@"Papel"]) {
         nodeLixeira = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(30, 50)];
         [nodeLixeira setPhysicsBody: [SKPhysicsBody bodyWithRectangleOfSize: nodeLixeira.size ]];
-        nodeLixeira.physicsBody.categoryBitMask = lixoPapel;
-        nodeLixeira.physicsBody.contactTestBitMask = lixoPapel;
+        nodeLixeira.physicsBody.categoryBitMask = lixeiraPapel;
         nodeLixeira.position = CGPointMake(75, frame.size.height/2 +60);
     }
     if ([material isEqualToString:@"Vidro"]) {
         nodeLixeira = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(30, 50)];
         [nodeLixeira setPhysicsBody: [SKPhysicsBody bodyWithRectangleOfSize: nodeLixeira.size ]];
-        nodeLixeira.physicsBody.categoryBitMask = lixoVidro;
-        nodeLixeira.physicsBody.contactTestBitMask = lixoVidro;
+        nodeLixeira.physicsBody.categoryBitMask = lixeiraVidro;
         nodeLixeira.position = CGPointMake(75, frame.size.height/2 -60);
     }
     if ([material isEqualToString:@"Plastico"]) {
         nodeLixeira = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(30, 50)];
         [nodeLixeira setPhysicsBody: [SKPhysicsBody bodyWithRectangleOfSize: nodeLixeira.size ]];
-        nodeLixeira.physicsBody.categoryBitMask = lixoPlastico;
-        nodeLixeira.physicsBody.contactTestBitMask = lixoPlastico;
+        nodeLixeira.physicsBody.categoryBitMask = lixeiraPlastico;
         nodeLixeira.position = CGPointMake(75, frame.size.height/2 -180);
     }
+    //nodeLixeira.physicsBody.collisionBitMask = lixoMetal | lixoPapel | lixoVidro | lixoPlastico;
+    nodeLixeira.physicsBody.contactTestBitMask = lixoMetal | lixoPapel | lixoVidro | lixoPlastico;
     nodeLixeira.physicsBody.dynamic = YES;
     nodeLixeira.physicsBody.affectedByGravity = NO;
-    nodeLixeira.physicsBody.collisionBitMask = 0; //detecta a colisao mas deixa atravesar
+    nodeLixeira.physicsBody.collisionBitMask = 0; //detecta a colisao mas nao deveria deixar atravesar
     
     return nodeLixeira;
 }
@@ -75,7 +73,8 @@
             nodeLixoNovo.physicsBody.categoryBitMask = lixoPlastico;
             break;
     }
-    
+    //nodeLixoNovo.physicsBody.collisionBitMask = lixeiraMetal | lixeiraPapel | lixeiraVidro | lixeiraPlastico;
+    nodeLixoNovo.physicsBody.contactTestBitMask = lixeiraMetal | lixeiraPapel | lixeiraVidro | lixeiraPlastico;
     
     return nodeLixoNovo;
 }

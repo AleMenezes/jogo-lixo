@@ -16,6 +16,9 @@
         /* Setup your scene here */
         
         self.backgroundColor = [SKColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+        self.physicsWorld.contactDelegate = self; // TORNA A COLISAO POSIVEL!!! TINHA ESQUECIDO ISSO
+        
+        [self setPontuacao: [[SKLabelNode alloc] initWithFontNamed:@"Verdana"]];
         
         [self setLixeiraMetal: [CriaNodes lixeiraTipo:@"Metal" forFrame: self.frame]];
         [self setLixeiraPapel: [CriaNodes lixeiraTipo:@"Papel" forFrame: self.frame]];
@@ -59,8 +62,7 @@
     [self performSelector:@selector(animaLixos) withObject:nil afterDelay:2];
 }
 
--(void)animaLixosTeste: (NSNumber* )animacao{
-
+-(void)animaLixosTeste: (NSNumber* )animacao{    
     switch ([animacao intValue]) {
         case 1:
             for (SKSpriteNode *node in [self lixos]){
@@ -95,6 +97,93 @@
     [self performSelector:@selector(animaLixosTeste:) withObject:animacao afterDelay:2];
 }
 
+-(void) didBeginContact:(SKPhysicsContact *)contact{
+    SKPhysicsBody *firstBody, *secondBody;
+    
+    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask) {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    }
+    else{
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
+    
+//    if((firstBody.categoryBitMask == lixeiraMetal && secondBody.categoryBitMask == lixoMetal) || (firstBody.categoryBitMask == lixoMetal && secondBody.categoryBitMask == lixeiraMetal)){
+//        NSLog(@"Colisao entre lixo e lixeira de metal");
+//    }
+    
+    //verifica a colisao foi entre lixo deo tipo metal e a lixeira de metal
+    if (firstBody.categoryBitMask == lixeiraMetal) {
+        if (secondBody.categoryBitMask == lixoMetal) {
+            [secondBody.node removeFromParent];
+            
+            //da os pontos por ter acertado o lixo de metal
+        }
+    }
+    else{
+        if (firstBody.categoryBitMask == lixoMetal) {
+            if (secondBody.categoryBitMask == lixeiraMetal) {
+                [firstBody.node removeFromParent];
+                
+                //da os pontos por ter acertado o lixo de metal
+            }
+        }
+    }
+    
+    //verifica a colisao foi entre lixo deo tipo papel e a lixeira de papel
+    if (firstBody.categoryBitMask == lixeiraPapel) {
+        if (secondBody.categoryBitMask == lixoPapel) {
+            [secondBody.node removeFromParent];
+            
+            //da os pontos por ter acertado o lixo de papel
+        }
+    }
+    else{
+        if (firstBody.categoryBitMask == lixoPapel) {
+            if (secondBody.categoryBitMask == lixeiraPapel) {
+                [firstBody.node removeFromParent];
+                //da os pontos por ter acertado o lixo de papel
+            }
+        }
+    }
+    
+    //verifica a colisao foi entre lixo deo tipo metal e a lixeira de vidro
+    if (firstBody.categoryBitMask == lixeiraVidro) {
+        if (secondBody.categoryBitMask == lixoVidro) {
+            [secondBody.node removeFromParent];
+            //da os pontos por ter acertado o lixo de vidro
+        }
+    }
+    else{
+        if (firstBody.categoryBitMask == lixoVidro) {
+            if (secondBody.categoryBitMask == lixeiraVidro) {
+                [firstBody.node removeFromParent];
+                
+                //da os pontos por ter acertado o lixo de vidro
+            }
+        }
+    }
+    
+    //verifica a colisao foi entre lixo deo tipo metal e a lixeira de plastico
+    if (firstBody.categoryBitMask == lixeiraPlastico) {
+        if (secondBody.categoryBitMask == lixoPlastico) {
+            [secondBody.node removeFromParent];
+            
+            //da os pontos por ter acertado o lixo de plastico
+        }
+    }
+    else{
+        if (firstBody.categoryBitMask == lixoPlastico) {
+            if (secondBody.categoryBitMask == lixeiraPlastico) {
+                [firstBody.node removeFromParent];
+                
+                //da os pontos por ter acertado o lixo de plastico
+            }
+        }
+    }
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
@@ -102,6 +191,7 @@
             if (CGRectContainsPoint([node frame], location)) {
                 [[self lixos] removeObject: node];
                 [node removeAllActions];
+                [node runAction: [SKAction moveTo:location duration:0.05]];
                 node.position = location;
                 [self setLixoSelecionado: node];
                 break;
@@ -112,7 +202,8 @@
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
-        [self lixoSelecionado].position = location;
+        [[self lixoSelecionado] runAction: [SKAction moveTo:location duration:0.05]];
+        //[self lixoSelecionado].position = location;
     }
 }
 

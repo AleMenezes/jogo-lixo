@@ -9,12 +9,14 @@
 #import <SpriteKit/SpriteKit.h>
 #import "MascarasColisao.h"
 
-@interface MyScene : SKScene
+@interface MyScene : SKScene <SKPhysicsContactDelegate>
 
 @property SKSpriteNode *lixeiraMetal;
 @property SKSpriteNode *lixeiraPapel;
 @property SKSpriteNode *lixeiraVidro ;
 @property SKSpriteNode *lixeiraPlastico;
+
+@property SKLabelNode *pontuacao;
 
 @property SKSpriteNode *lixoSelecionado;
 
