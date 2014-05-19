@@ -16,11 +16,12 @@
 @property SKSpriteNode *lixeiraVidro ;
 @property SKSpriteNode *lixeiraPlastico;
 
-@property SKLabelNode *pontuacao;
-
+@property NSMutableArray *lixos;
 @property SKSpriteNode *lixoSelecionado;
 
-@property NSMutableArray *lixos;
+@property SKLabelNode *labelPontuacao;
+@property int valorPontuacao;
 
+@property BOOL lixoSendoSegurado;
 
 @end

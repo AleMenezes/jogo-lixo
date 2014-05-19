@@ -16,26 +16,30 @@
         /* Setup your scene here */
         
         self.backgroundColor = [SKColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
-        self.physicsWorld.contactDelegate = self; // TORNA A COLISAO POSIVEL!!! TINHA ESQUECIDO ISSO
+        self.physicsWorld.contactDelegate = self; // TORNA A COLISAO POSIVEL!!! TINHA ESQUECIDO ISSO >.<
         
-        [self setPontuacao: [[SKLabelNode alloc] initWithFontNamed:@"Verdana"]];
+        [self setValorPontuacao:0];
+        [self setLabelPontuacao: [SKLabelNode labelNodeWithFontNamed:@"Verdana"]];
+        [self labelPontuacao].text = [NSString stringWithFormat:@"%d", [self valorPontuacao]];
+        [self labelPontuacao].fontColor = [UIColor blackColor];
+        [self labelPontuacao].position = CGPointMake(self.frame.size.width/2,
+                                                self.frame.size.height - [self labelPontuacao].frame.size.height - 20) ;
+        [self addChild: [self labelPontuacao]];
         
         [self setLixeiraMetal: [CriaNodes lixeiraTipo:@"Metal" forFrame: self.frame]];
         [self setLixeiraPapel: [CriaNodes lixeiraTipo:@"Papel" forFrame: self.frame]];
         [self setLixeiraVidro: [CriaNodes lixeiraTipo:@"Vidro" forFrame: self.frame]];
         [self setLixeiraPlastico: [CriaNodes lixeiraTipo:@"Plastico" forFrame: self.frame] ];
 
-        
         [self addChild: [self lixeiraMetal]];
         [self addChild: [self lixeiraPapel]];
         [self addChild: [self lixeiraVidro]];
         [self addChild: [self lixeiraPlastico]];
         
-        
         [self setLixos: [[NSMutableArray alloc] init]];
 
-        //[self addChild: [self lixos]];
-
+        [self setLixoSendoSegurado:false];
+        
         [self animaLixos];
         //[self animaLixosTeste: [NSNumber numberWithInt:2]];
         
@@ -109,80 +113,107 @@
         secondBody = contact.bodyA;
     }
     
-//    if((firstBody.categoryBitMask == lixeiraMetal && secondBody.categoryBitMask == lixoMetal) || (firstBody.categoryBitMask == lixoMetal && secondBody.categoryBitMask == lixeiraMetal)){
-//        NSLog(@"Colisao entre lixo e lixeira de metal");
-//    }
-    
     //verifica a colisao foi entre lixo deo tipo metal e a lixeira de metal
     if (firstBody.categoryBitMask == lixeiraMetal) {
         if (secondBody.categoryBitMask == lixoMetal) {
-            [secondBody.node removeFromParent];
-            
-            //da os pontos por ter acertado o lixo de metal
+            [secondBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
+            [self aumetanPontuacao: (SKSpriteNode *)secondBody.node];
+            return;
         }
     }
     else{
         if (firstBody.categoryBitMask == lixoMetal) {
             if (secondBody.categoryBitMask == lixeiraMetal) {
-                [firstBody.node removeFromParent];
-                
-                //da os pontos por ter acertado o lixo de metal
+                [firstBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
+                [self aumetanPontuacao: (SKSpriteNode *)firstBody.node];
+                return;
             }
         }
     }
-    
     //verifica a colisao foi entre lixo deo tipo papel e a lixeira de papel
     if (firstBody.categoryBitMask == lixeiraPapel) {
         if (secondBody.categoryBitMask == lixoPapel) {
-            [secondBody.node removeFromParent];
-            
-            //da os pontos por ter acertado o lixo de papel
+            [secondBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
+            [self aumetanPontuacao: (SKSpriteNode *)secondBody.node];
+            return;
         }
     }
     else{
         if (firstBody.categoryBitMask == lixoPapel) {
             if (secondBody.categoryBitMask == lixeiraPapel) {
-                [firstBody.node removeFromParent];
-                //da os pontos por ter acertado o lixo de papel
+                [firstBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
+                [self aumetanPontuacao: (SKSpriteNode *)firstBody.node];
+                return;
             }
         }
     }
-    
     //verifica a colisao foi entre lixo deo tipo metal e a lixeira de vidro
     if (firstBody.categoryBitMask == lixeiraVidro) {
         if (secondBody.categoryBitMask == lixoVidro) {
-            [secondBody.node removeFromParent];
-            //da os pontos por ter acertado o lixo de vidro
+            [secondBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
+            [self aumetanPontuacao: (SKSpriteNode *)secondBody.node];
+            return;
         }
     }
     else{
         if (firstBody.categoryBitMask == lixoVidro) {
             if (secondBody.categoryBitMask == lixeiraVidro) {
-                [firstBody.node removeFromParent];
-                
-                //da os pontos por ter acertado o lixo de vidro
+                [firstBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
+                [self aumetanPontuacao: (SKSpriteNode *)firstBody.node];
+                return;
             }
         }
     }
-    
     //verifica a colisao foi entre lixo deo tipo metal e a lixeira de plastico
     if (firstBody.categoryBitMask == lixeiraPlastico) {
         if (secondBody.categoryBitMask == lixoPlastico) {
-            [secondBody.node removeFromParent];
-            
+            [secondBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
+            [self aumetanPontuacao: (SKSpriteNode *)secondBody.node];
+            return;
             //da os pontos por ter acertado o lixo de plastico
         }
     }
     else{
         if (firstBody.categoryBitMask == lixoPlastico) {
             if (secondBody.categoryBitMask == lixeiraPlastico) {
-                [firstBody.node removeFromParent];
-                
-                //da os pontos por ter acertado o lixo de plastico
+                [firstBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
+                [self aumetanPontuacao: (SKSpriteNode *)firstBody.node];
+                return;
             }
         }
     }
+    
+    //teve colisao mas nao acertou, remove da cena msm assim e tira ponto
+    if ( !(firstBody.categoryBitMask == lixeiraMetal || firstBody.categoryBitMask == lixeiraPapel ||
+           firstBody.categoryBitMask == lixeiraVidro || firstBody.categoryBitMask == lixeiraPlastico) ) {
+        [firstBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
+        [self performSelector:@selector(removeNode:) withObject: firstBody.node afterDelay:0.3];
+    }else{
+
+    }
+    
+    if ( !(secondBody.categoryBitMask == lixeiraMetal || secondBody.categoryBitMask == lixeiraPapel ||
+           secondBody.categoryBitMask == lixeiraVidro || secondBody.categoryBitMask == lixeiraPlastico) ) {
+        [secondBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
+        [self performSelector:@selector(removeNode:) withObject: secondBody.node afterDelay:0.3];
+    }
+    
+    [self setValorPontuacao: [self valorPontuacao] -20];
+    [self labelPontuacao].text = [NSString stringWithFormat:@"%d", [self valorPontuacao]];
+    [self setLixoSendoSegurado:false];
+    
 }
+
+-(void)aumetanPontuacao: (SKSpriteNode *)lixo{
+    [self setValorPontuacao: [self valorPontuacao]+50];
+    [self labelPontuacao].text = [NSString stringWithFormat:@"%d", [self valorPontuacao]];
+    [self setLixoSendoSegurado:false];
+    [self performSelector:@selector(removeNode:) withObject:lixo afterDelay:0.3];
+}
+-(void)removeNode: (SKSpriteNode *)node{
+    [node removeFromParent];
+}
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     for (UITouch *touch in touches) {
@@ -194,11 +225,13 @@
                 [node runAction: [SKAction moveTo:location duration:0.05]];
                 node.position = location;
                 [self setLixoSelecionado: node];
+                [self setLixoSendoSegurado:true];
                 break;
             }
         }
     }
 }
+
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
@@ -208,7 +241,14 @@
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    [[self lixoSelecionado] removeFromParent];
+    if ([self lixoSendoSegurado]) {
+        [self setValorPontuacao: [self valorPontuacao] -15];
+        [self labelPontuacao].text = [NSString stringWithFormat:@"%d", [self valorPontuacao]];
+        [self setLixoSendoSegurado:false];
+    }
+    [[self lixoSelecionado] runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
+    [self performSelector:@selector(removeNode:) withObject:[self lixoSelecionado] afterDelay:0.3];
+    //[[self lixoSelecionado] removeFromParent];
     [[self lixos] removeObject: [self lixoSelecionado]];
 }
 
