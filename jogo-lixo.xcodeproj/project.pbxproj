@@ -18,7 +18,6 @@
 		F61460A8192404D300174079 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61460A6192404D300174079 /* Main_iPad.storyboard */; };
 		F61460AB192404D300174079 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F61460AA192404D300174079 /* ViewController.m */; };
 		F61460AE192404D300174079 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F61460AD192404D300174079 /* MyScene.m */; };
-		F61460B0192404D300174079 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = F61460AF192404D300174079 /* Spaceship.png */; };
 		F61460B2192404D300174079 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61460B1192404D300174079 /* Images.xcassets */; };
 		F61460B9192404D300174079 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61460B8192404D300174079 /* XCTest.framework */; };
 		F61460BA192404D300174079 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F614608F192404D300174079 /* Foundation.framework */; };
@@ -26,6 +25,14 @@
 		F61460C3192404D300174079 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F61460C1192404D300174079 /* InfoPlist.strings */; };
 		F61460C5192404D300174079 /* jogo_lixoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F61460C4192404D300174079 /* jogo_lixoTests.m */; };
 		F67CD036192691B4006D729C /* CriaNodes.m in Sources */ = {isa = PBXBuildFile; fileRef = F67CD035192691B4006D729C /* CriaNodes.m */; };
+		F67CD09C192BD814006D729C /* lixeira metal.png in Resources */ = {isa = PBXBuildFile; fileRef = F67CD094192BD814006D729C /* lixeira metal.png */; };
+		F67CD09D192BD814006D729C /* lixeira papel.png in Resources */ = {isa = PBXBuildFile; fileRef = F67CD095192BD814006D729C /* lixeira papel.png */; };
+		F67CD09E192BD814006D729C /* lixeira plastico.png in Resources */ = {isa = PBXBuildFile; fileRef = F67CD096192BD814006D729C /* lixeira plastico.png */; };
+		F67CD09F192BD814006D729C /* lixeira vidro.png in Resources */ = {isa = PBXBuildFile; fileRef = F67CD097192BD814006D729C /* lixeira vidro.png */; };
+		F67CD0A0192BD814006D729C /* metal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F67CD098192BD814006D729C /* metal.jpg */; };
+		F67CD0A1192BD814006D729C /* papel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F67CD099192BD814006D729C /* papel.jpg */; };
+		F67CD0A2192BD814006D729C /* plastico.png in Resources */ = {isa = PBXBuildFile; fileRef = F67CD09A192BD814006D729C /* plastico.png */; };
+		F67CD0A3192BD814006D729C /* vidro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F67CD09B192BD814006D729C /* vidro.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +63,6 @@
 		F61460AA192404D300174079 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F61460AC192404D300174079 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
 		F61460AD192404D300174079 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		F61460AF192404D300174079 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		F61460B1192404D300174079 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F61460B7192404D300174079 /* jogo-lixoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "jogo-lixoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61460B8192404D300174079 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -66,6 +72,14 @@
 		F67CD034192691B4006D729C /* CriaNodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CriaNodes.h; sourceTree = "<group>"; };
 		F67CD035192691B4006D729C /* CriaNodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CriaNodes.m; sourceTree = "<group>"; };
 		F67CD03C19269436006D729C /* MascarasColisao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MascarasColisao.h; sourceTree = "<group>"; };
+		F67CD094192BD814006D729C /* lixeira metal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lixeira metal.png"; sourceTree = "<group>"; };
+		F67CD095192BD814006D729C /* lixeira papel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lixeira papel.png"; sourceTree = "<group>"; };
+		F67CD096192BD814006D729C /* lixeira plastico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lixeira plastico.png"; sourceTree = "<group>"; };
+		F67CD097192BD814006D729C /* lixeira vidro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lixeira vidro.png"; sourceTree = "<group>"; };
+		F67CD098192BD814006D729C /* metal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = metal.jpg; sourceTree = "<group>"; };
+		F67CD099192BD814006D729C /* papel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = papel.jpg; sourceTree = "<group>"; };
+		F67CD09A192BD814006D729C /* plastico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plastico.png; sourceTree = "<group>"; };
+		F67CD09B192BD814006D729C /* vidro.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vidro.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +152,7 @@
 				F61460AD192404D300174079 /* MyScene.m */,
 				F67CD034192691B4006D729C /* CriaNodes.h */,
 				F67CD035192691B4006D729C /* CriaNodes.m */,
-				F61460AF192404D300174079 /* Spaceship.png */,
+				F67CD093192BD814006D729C /* imagens */,
 				F61460B1192404D300174079 /* Images.xcassets */,
 				F6146098192404D300174079 /* Supporting Files */,
 			);
@@ -172,6 +186,21 @@
 				F61460C1192404D300174079 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F67CD093192BD814006D729C /* imagens */ = {
+			isa = PBXGroup;
+			children = (
+				F67CD094192BD814006D729C /* lixeira metal.png */,
+				F67CD095192BD814006D729C /* lixeira papel.png */,
+				F67CD096192BD814006D729C /* lixeira plastico.png */,
+				F67CD097192BD814006D729C /* lixeira vidro.png */,
+				F67CD098192BD814006D729C /* metal.jpg */,
+				F67CD099192BD814006D729C /* papel.jpg */,
+				F67CD09A192BD814006D729C /* plastico.png */,
+				F67CD09B192BD814006D729C /* vidro.jpg */,
+			);
+			path = imagens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,11 +279,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F61460B0192404D300174079 /* Spaceship.png in Resources */,
+				F67CD0A0192BD814006D729C /* metal.jpg in Resources */,
 				F61460B2192404D300174079 /* Images.xcassets in Resources */,
 				F61460A8192404D300174079 /* Main_iPad.storyboard in Resources */,
 				F61460A5192404D300174079 /* Main_iPhone.storyboard in Resources */,
+				F67CD0A3192BD814006D729C /* vidro.jpg in Resources */,
 				F614609C192404D300174079 /* InfoPlist.strings in Resources */,
+				F67CD09D192BD814006D729C /* lixeira papel.png in Resources */,
+				F67CD0A2192BD814006D729C /* plastico.png in Resources */,
+				F67CD09C192BD814006D729C /* lixeira metal.png in Resources */,
+				F67CD09F192BD814006D729C /* lixeira vidro.png in Resources */,
+				F67CD0A1192BD814006D729C /* papel.jpg in Resources */,
+				F67CD09E192BD814006D729C /* lixeira plastico.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

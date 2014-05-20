@@ -61,7 +61,9 @@
         }
         else{
             [nodeLixo runAction: [SKAction moveBy:CGVectorMake(0, -150) duration:2]];
+            [nodeLixo runAction: [SKAction rotateByAngle:arc4random()%7 duration:arc4random()%10+0.5]];
         }
+        
     }
     [self performSelector:@selector(animaLixos) withObject:nil afterDelay:2];
 }
