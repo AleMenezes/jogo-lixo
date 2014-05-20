@@ -13,8 +13,8 @@
 
 +(SKSpriteNode *)lixeiraTipo: (NSString *)material forFrame: (CGRect)frame {
     SKSpriteNode *nodeLixeira;
-    CGFloat comprimentoLixeira = 40;
-    CGFloat alturaLixeira = 40;
+    CGFloat comprimentoLixeira = 45;
+    CGFloat alturaLixeira = 60;
     
     if ([material isEqualToString:@"Metal"]) {
         nodeLixeira = [SKSpriteNode spriteNodeWithImageNamed:@"lixeira metal.png"];
