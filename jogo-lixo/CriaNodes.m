@@ -43,7 +43,7 @@
     }
     
     [nodeLixeira setSize: CGSizeMake(comprimentoLixeira, alturaLixeira)];
-    //nodeLixeira.physicsBody.collisionBitMask = lixoMetal | lixoPapel | lixoVidro | lixoPlastico;
+    nodeLixeira.physicsBody.collisionBitMask = lixoMetal | lixoPapel | lixoVidro | lixoPlastico;
     nodeLixeira.physicsBody.contactTestBitMask = lixoMetal | lixoPapel | lixoVidro | lixoPlastico;
     nodeLixeira.physicsBody.dynamic = YES;
     nodeLixeira.physicsBody.affectedByGravity = NO;
@@ -85,7 +85,7 @@
     
     nodeLixoNovo.physicsBody.dynamic = YES;
     nodeLixoNovo.physicsBody.affectedByGravity = NO;
-    //nodeLixoNovo.physicsBody.collisionBitMask = lixeiraMetal | lixeiraPapel | lixeiraVidro | lixeiraPlastico;
+    nodeLixoNovo.physicsBody.collisionBitMask = lixeiraMetal | lixeiraPapel | lixeiraVidro | lixeiraPlastico;
     nodeLixoNovo.physicsBody.contactTestBitMask = lixeiraMetal | lixeiraPapel | lixeiraVidro | lixeiraPlastico;
     
     return nodeLixoNovo;

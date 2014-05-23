@@ -11,4 +11,6 @@
 
 @interface ViewController : UIViewController
 
+@property UIButton *botaoDerp;
+
 @end

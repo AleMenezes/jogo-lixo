@@ -19,9 +19,11 @@
 @property NSMutableArray *lixos;
 @property SKSpriteNode *lixoSelecionado;
 
-@property SKLabelNode *labelPontuacao;
-@property int valorPontuacao;
+@property SKLabelNode *labelPontuacao; //para exibir o valor da pontuacao
+@property int valorPontuacao; //guarda o valor real da pontuacao
 
 @property BOOL lixoSendoSegurado;
+
+@property SKSpriteNode *botaoSair; //pseudo-botao para sair do jogo
 
 @end

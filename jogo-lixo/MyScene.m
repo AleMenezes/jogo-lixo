@@ -13,7 +13,6 @@
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
-        /* Setup your scene here */
         
         self.backgroundColor = [SKColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
         self.physicsWorld.contactDelegate = self; // TORNA A COLISAO POSIVEL!!! TINHA ESQUECIDO ISSO >.<
@@ -43,14 +42,23 @@
         [self animaLixos];
         //[self animaLixosTeste: [NSNumber numberWithInt:2]];
         
+        
+        [self setBotaoSair: [SKSpriteNode spriteNodeWithImageNamed:@"icone voltar.png"]];
+        [[self botaoSair] setSize: CGSizeMake(30, 30)];
+        [self botaoSair].position = CGPointMake(self.frame.size.width/2, [self botaoSair].frame.size.height *1.5);
+        
+        [self addChild: [self botaoSair]];
+        
     }
     return self;
 }
 
+/**
+ *  Produzir Lixos com animacao de movimento! 
+ * e verifica se ele ja andou pra fora da tela para remove-lo
+ */
 -(void)animaLixos{
-    //Produzir Lixos com animacao de movimento!
-    //e verifica se ele ja andou pra fora da tela para remove-lo
-    
+
     SKSpriteNode *lixo = [CriaNodes lixoAleatorioNoFrame: self.frame];
     [[self lixos] addObject: lixo];
     [self addChild:lixo];
@@ -68,6 +76,10 @@
     [self performSelector:@selector(animaLixos) withObject:nil afterDelay:2];
 }
 
+/**
+ *  animacões de movimento para brincar/teste
+ *
+ */
 -(void)animaLixosTeste: (NSNumber* )animacao{    
     switch ([animacao intValue]) {
         case 1:
@@ -116,6 +128,8 @@
     }
     
     //verifica a colisao foi entre lixo deo tipo metal e a lixeira de metal
+    //estes if/else feios sao feitos poequr eu preciso saber qual dos corpos eh o lixo para remove-lo
+    //somete o fato de ter a colisao nao me diz quem é quem
     if (firstBody.categoryBitMask == lixeiraMetal) {
         if (secondBody.categoryBitMask == lixoMetal) {
             [secondBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
@@ -172,7 +186,6 @@
             [secondBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
             [self aumetanPontuacao: (SKSpriteNode *)secondBody.node];
             return;
-            //da os pontos por ter acertado o lixo de plastico
         }
     }
     else{
@@ -190,8 +203,6 @@
            firstBody.categoryBitMask == lixeiraVidro || firstBody.categoryBitMask == lixeiraPlastico) ) {
         [firstBody.node runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
         [self performSelector:@selector(removeNode:) withObject: firstBody.node afterDelay:0.3];
-    }else{
-
     }
     
     if ( !(secondBody.categoryBitMask == lixeiraMetal || secondBody.categoryBitMask == lixeiraPapel ||
@@ -206,22 +217,37 @@
     
 }
 
+/**
+ *  Metodo para incremento da pontuacao quando confirmado a colisao com a lixeira e o lixo correto e exclusao do mesmo *
+ *  @param lixo Node do lixo que deve ser removido com animacao apos a colisao
+ */
 -(void)aumetanPontuacao: (SKSpriteNode *)lixo{
     [self setValorPontuacao: [self valorPontuacao]+50];
     [self labelPontuacao].text = [NSString stringWithFormat:@"%d", [self valorPontuacao]];
     [self setLixoSendoSegurado:false];
     [self performSelector:@selector(removeNode:) withObject:lixo afterDelay:0.3];
 }
+/**
+ *  Faz apenas a remocao do node, mas esta em um metodo a parte para poder ser chamado com um delay
+ *
+ *  @param node Node que deve ser removido
+ */
 -(void)removeNode: (SKSpriteNode *)node{
     [node removeFromParent];
 }
 
-
+/**
+ *  quando ocorre um toque, verifica se este aconteceu em algum dos nodes de lixo.
+ *  se houver um toque encima de um node, guarda-o em uma propriedade do VC para atualizar a posicao posteriormente no touches moved
+ *
+ *  @param touches
+ *  @param event
+ */
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         for (SKSpriteNode *node in [self lixos] ){
-            if (CGRectContainsPoint([node frame], location)) {
+            if (CGRectContainsPoint(node.frame, location)) {
                 [[self lixos] removeObject: node];
                 [node removeAllActions];
                 [node runAction: [SKAction moveTo:location duration:0.05]];
@@ -230,18 +256,46 @@
                 [self setLixoSendoSegurado:true];
                 break;
             }
+            if (CGRectContainsPoint([self botaoSair].frame, location)) {
+                [self sairDaCena];
+            }
         }
     }
 }
 
+/**
+ *  metodo do pseudo-botao para sair do jogo com auxilio do touchesBegan
+ */
+-(void)sairDaCena{
+    [self.scene removeFromParent];
+    //[self.view presentScene:nil];
+    //aparentemente esse comando faz o equivalente ao dismiss na cena
+}
+
+/**
+ *  quando o dedo é MOVIMENTADO, faz o node selecionado ir até a posicao deste toque
+ *
+ *  @param touches
+ *  @param event
+ */
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
-        [[self lixoSelecionado] runAction: [SKAction moveTo:location duration:0.05]];
-        //[self lixoSelecionado].position = location;
+        if ([self lixoSendoSegurado]) {
+            if (location.x > [self lixeiraMetal].position.x) {
+                [[self lixoSelecionado] runAction: [SKAction moveTo:location duration:0.05]];
+                //[self lixoSelecionado].position = location;
+            }
+        }
     }
 }
 
+/**
+ *  quando o dedo é RETIRADO, o node sendo arrastado é também removido(e com animacao) e tira pontos, porem sāo menos pontos do que levar ao lixo errado
+ *
+ *  @param touches
+ *  @param event
+ */
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     if ([self lixoSendoSegurado]) {
         [self setValorPontuacao: [self valorPontuacao] -15];
@@ -250,7 +304,6 @@
     }
     [[self lixoSelecionado] runAction:[SKAction fadeAlphaTo:0.0 duration:0.3]];
     [self performSelector:@selector(removeNode:) withObject:[self lixoSelecionado] afterDelay:0.3];
-    //[[self lixoSelecionado] removeFromParent];
     [[self lixos] removeObject: [self lixoSelecionado]];
 }
 
