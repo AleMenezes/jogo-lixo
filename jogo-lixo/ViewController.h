@@ -13,4 +13,10 @@
 
 @property UIButton *botaoDerp;
 
+
++ (ViewController *)sharedViewController;
+
+
+-(void)jogoTerminou;
+
 @end

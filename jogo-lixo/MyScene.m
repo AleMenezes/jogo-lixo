@@ -9,6 +9,7 @@
 #import "MyScene.h"
 #import "CriaNodes.h"
 
+
 @implementation MyScene
 
 -(id)initWithSize:(CGSize)size {    
@@ -216,7 +217,6 @@
     [self setLixoSendoSegurado:false];
     
 }
-
 /**
  *  Metodo para incremento da pontuacao quando confirmado a colisao com a lixeira e o lixo correto e exclusao do mesmo *
  *  @param lixo Node do lixo que deve ser removido com animacao apos a colisao
@@ -267,8 +267,8 @@
  *  metodo do pseudo-botao para sair do jogo com auxilio do touchesBegan
  */
 -(void)sairDaCena{
-    [self.scene removeFromParent];
-    //[self.view presentScene:nil];
+    [[ViewController sharedViewController] jogoTerminou];
+    [self.view presentScene:nil];
     //aparentemente esse comando faz o equivalente ao dismiss na cena
 }
 

@@ -22,12 +22,13 @@
     [self.view addSubview: [self botaoDerp]];
 }
 
--(void )viewDidAppear:(BOOL)animated{
-    [self botaoDerp].hidden = NO;
-}
 -(void)viewWillAppear:(BOOL)animated{
-    [self botaoDerp].hidden = NO;
+    
 }
+-(void )viewDidAppear:(BOOL)animated{
+
+}
+
 
 - (BOOL)shouldAutorotate{
     return NO;
@@ -49,27 +50,31 @@
     //trolol
     // Present the scene.
     [skView presentScene:scene];
-    [self botaoDerp].hidden = YES;
+
+    [self jogoEmAndamento];
 }
 
-//-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-//    // Configure the view.
-//    SKView * skView = (SKView *)self.view;
-//    skView.showsFPS = YES;
-//    skView.showsNodeCount = YES;
-//    
-//    // Create and configure the scene.
-//    SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
-//    scene.scaleMode = SKSceneScaleModeAspectFill;
-//    //trolol
-//    // Present the scene.
-//    [skView presentScene:scene];
-//}
+/**
+ *  quando o jogo comecar a rodar, esconde os elementos da view neste metodo para que eles nao fiquem ativos dirante o jogo
+ */
+-(void)jogoEmAndamento{
+    [self botaoDerp].alpha = 0.0;
+}
+
+
+/**
+ *  quando o jogo terminar, mostra novamente os elementos da view.
+ *  este metodo teve ter o cabecalho no .h para que seja visivel no singleton
+ */
+-(void)jogoTerminou{
+    [self botaoDerp].alpha = 1.0;
+}
 
 - (NSUInteger)supportedInterfaceOrientations{
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
+    }
+    else {
         return UIInterfaceOrientationMaskAll;
     }
 }
@@ -78,5 +83,24 @@
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
+
+
+/**
+ *  metodo para criar singleton deste ViewController
+ *
+ *  @return <#return value description#>
+ */
++(ViewController*)sharedViewController{
+    static ViewController *sharedViewController = nil;
+    if (!sharedViewController){
+        sharedViewController = [[super allocWithZone:nil]init];
+    }
+    return sharedViewController;
+}
+
++ (id)allocWithZone:(struct _NSZone *)zone{
+    return [self sharedViewController];
+}
+
 
 @end

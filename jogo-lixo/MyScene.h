@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "MascarasColisao.h"
+#import "ViewController.h"
 
 @interface MyScene : SKScene <SKPhysicsContactDelegate>
 
