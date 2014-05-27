@@ -13,33 +13,35 @@
 
 +(SKSpriteNode *)lixeiraTipo: (NSString *)material forFrame: (CGRect)frame {
     SKSpriteNode *nodeLixeira;
-    CGFloat comprimentoLixeira = 45;
-    CGFloat alturaLixeira = 60;
+    CGFloat comprimentoLixeira = 75;
+    CGFloat alturaLixeira = 100;
+    CGFloat posX = 60;
+    
     
     if ([material isEqualToString:@"Metal"]) {
         nodeLixeira = [SKSpriteNode spriteNodeWithImageNamed:@"lixeira metal.png"];
         
         [nodeLixeira setPhysicsBody: [SKPhysicsBody bodyWithRectangleOfSize: CGSizeMake(comprimentoLixeira, alturaLixeira)]];
         nodeLixeira.physicsBody.categoryBitMask = lixeiraMetal;
-        nodeLixeira.position = CGPointMake(75, frame.size.height/2 +180);
+        nodeLixeira.position = CGPointMake(posX, frame.size.height*(4/5.0) );
     }
     if ([material isEqualToString:@"Papel"]) {
         nodeLixeira = [SKSpriteNode spriteNodeWithImageNamed:@"lixeira papel.png"];
         [nodeLixeira setPhysicsBody: [SKPhysicsBody bodyWithRectangleOfSize: CGSizeMake(comprimentoLixeira, alturaLixeira)]];
         nodeLixeira.physicsBody.categoryBitMask = lixeiraPapel;
-        nodeLixeira.position = CGPointMake(75, frame.size.height/2 +60);
+        nodeLixeira.position = CGPointMake(posX, frame.size.height*(3/5.0) );
     }
     if ([material isEqualToString:@"Vidro"]) {
         nodeLixeira = [SKSpriteNode spriteNodeWithImageNamed:@"lixeira vidro.png"];
         [nodeLixeira setPhysicsBody: [SKPhysicsBody bodyWithRectangleOfSize: CGSizeMake(comprimentoLixeira, alturaLixeira)]];
         nodeLixeira.physicsBody.categoryBitMask = lixeiraVidro;
-        nodeLixeira.position = CGPointMake(75, frame.size.height/2 -60);
+        nodeLixeira.position = CGPointMake(posX, frame.size.height*(2/5.0) );
     }
     if ([material isEqualToString:@"Plastico"]) {
         nodeLixeira = [SKSpriteNode spriteNodeWithImageNamed:@"lixeira plastico.png"];
         [nodeLixeira setPhysicsBody: [SKPhysicsBody bodyWithRectangleOfSize: CGSizeMake(comprimentoLixeira, alturaLixeira)]];
         nodeLixeira.physicsBody.categoryBitMask = lixeiraPlastico;
-        nodeLixeira.position = CGPointMake(75, frame.size.height/2 -180);
+        nodeLixeira.position = CGPointMake(posX, frame.size.height*(1/5.0) );
     }
     
     [nodeLixeira setSize: CGSizeMake(comprimentoLixeira, alturaLixeira)];

@@ -20,6 +20,7 @@
     [[self botaoDerp] setTitle:@"click me" forState:UIControlStateNormal];
     
     [self.view addSubview: [self botaoDerp]];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
