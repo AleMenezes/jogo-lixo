@@ -37,9 +37,7 @@
 /**
  *  faz exatamente o que o nome diz
  */
--(void)abreJoguinhoManeiro{
-    // Configure the view.
-    
+-(void)abreJoguinhoManeiro{    
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
