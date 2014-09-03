@@ -45,8 +45,8 @@
         
         
         [self setBotaoSair: [SKSpriteNode spriteNodeWithImageNamed:@"icone voltar.png"]];
-        [[self botaoSair] setSize: CGSizeMake(30, 30)];
-        [self botaoSair].position = CGPointMake(self.frame.size.width/2, [self botaoSair].frame.size.height *1.5);
+        [[self botaoSair] setSize: CGSizeMake(50, 50)];
+        [self botaoSair].position = CGPointMake(self.frame.size.width/2, [self botaoSair].frame.size.height);
         
         [self addChild: [self botaoSair]];
         

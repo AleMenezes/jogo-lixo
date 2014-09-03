@@ -1,21 +1,29 @@
 //
-//  ViewController.m
+//  JogoViewController.m
 //  jogo-lixo
 //
-//  Created by Alessandro Camillo Gimenez de Menezes on 14/05/14.
+//  Created by Alessandro Camillo Gimenez de Menezes on 16/06/14.
 //  Copyright (c) 2014 Alessandro Camillo Gimenez de Menezes. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "JogoViewController.h"
 #import "MyScene.h"
 
-@implementation ViewController
+@interface JogoViewController ()
 
+@end
+
+//- (void)loadView {
+//    SKView *skView = [[SKView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.view = skView;
+//}
+
+
+@implementation JogoViewController
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [[self view] setBackgroundColor:[UIColor whiteColor]];
     [self setBotaoDerp: [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 -50,
-                                                                     self.view.frame.size.height/2 -25, 100, 50)]];
+                                                                   self.view.frame.size.height/2 -25, 100, 50)]];
     
     [[self botaoDerp] addTarget:self action:@selector(abreJoguinhoManeiro) forControlEvents: UIControlEventTouchUpInside];
     [[self botaoDerp] setTitle:@"click me" forState:UIControlStateNormal];
@@ -28,7 +36,7 @@
     
 }
 -(void )viewDidAppear:(BOOL)animated{
-
+    
 }
 
 
@@ -39,18 +47,18 @@
 /**
  *  faz exatamente o que o nome diz
  */
--(void)abreJoguinhoManeiro{    
+-(void)abreJoguinhoManeiro{
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
-
+    
     // Create and configure the scene.
     SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     //trolol
     // Present the scene.
     [skView presentScene:scene];
-
+    
     [self jogoEmAndamento];
 }
 
@@ -90,16 +98,16 @@
  *
  *  @return o priprio singleton
  */
-+(ViewController*)sharedViewController{
-    static ViewController *sharedViewController = nil;
-    if (!sharedViewController){
-        sharedViewController = [[super allocWithZone:nil]init];
++(JogoViewController *)sharedJogoViewController{
+    static JogoViewController *sharedJogoViewController = nil;
+    if (!sharedJogoViewController){
+        sharedJogoViewController = [[super allocWithZone:nil]init];
     }
-    return sharedViewController;
+    return sharedJogoViewController;
 }
 
 + (id)allocWithZone:(struct _NSZone *)zone{
-    return [self sharedViewController];
+    return [self sharedJogoViewController];
 }
 
 

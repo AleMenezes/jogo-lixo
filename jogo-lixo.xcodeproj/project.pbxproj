@@ -24,6 +24,7 @@
 		F61460BB192404D300174079 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6146093192404D300174079 /* UIKit.framework */; };
 		F61460C3192404D300174079 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F61460C1192404D300174079 /* InfoPlist.strings */; };
 		F61460C5192404D300174079 /* jogo_lixoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F61460C4192404D300174079 /* jogo_lixoTests.m */; };
+		F672DB40194F6C0600248282 /* JogoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F672DB3F194F6C0600248282 /* JogoViewController.m */; };
 		F67B0600192E77EF007D709F /* icone voltar.png in Resources */ = {isa = PBXBuildFile; fileRef = F67B05FF192E77EF007D709F /* icone voltar.png */; };
 		F67CD036192691B4006D729C /* CriaNodes.m in Sources */ = {isa = PBXBuildFile; fileRef = F67CD035192691B4006D729C /* CriaNodes.m */; };
 		F67CD09C192BD814006D729C /* lixeira metal.png in Resources */ = {isa = PBXBuildFile; fileRef = F67CD094192BD814006D729C /* lixeira metal.png */; };
@@ -70,6 +71,8 @@
 		F61460C0192404D300174079 /* jogo-lixoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "jogo-lixoTests-Info.plist"; sourceTree = "<group>"; };
 		F61460C2192404D300174079 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F61460C4192404D300174079 /* jogo_lixoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jogo_lixoTests.m; sourceTree = "<group>"; };
+		F672DB3E194F6C0600248282 /* JogoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JogoViewController.h; sourceTree = "<group>"; };
+		F672DB3F194F6C0600248282 /* JogoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JogoViewController.m; sourceTree = "<group>"; };
 		F67B05FF192E77EF007D709F /* icone voltar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icone voltar.png"; sourceTree = "<group>"; };
 		F67CD034192691B4006D729C /* CriaNodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CriaNodes.h; sourceTree = "<group>"; };
 		F67CD035192691B4006D729C /* CriaNodes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CriaNodes.m; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				F61460A1192404D300174079 /* AppDelegate.m */,
 				F61460A3192404D300174079 /* Main_iPhone.storyboard */,
 				F61460A6192404D300174079 /* Main_iPad.storyboard */,
+				F672DB3E194F6C0600248282 /* JogoViewController.h */,
+				F672DB3F194F6C0600248282 /* JogoViewController.m */,
 				F61460A9192404D300174079 /* ViewController.h */,
 				F61460AA192404D300174079 /* ViewController.m */,
 				F61460AC192404D300174079 /* MyScene.h */,
@@ -316,6 +321,7 @@
 				F61460AE192404D300174079 /* MyScene.m in Sources */,
 				F61460AB192404D300174079 /* ViewController.m in Sources */,
 				F67CD036192691B4006D729C /* CriaNodes.m in Sources */,
+				F672DB40194F6C0600248282 /* JogoViewController.m in Sources */,
 				F61460A2192404D300174079 /* AppDelegate.m in Sources */,
 				F614609E192404D300174079 /* main.m in Sources */,
 			);
